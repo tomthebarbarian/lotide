@@ -17,9 +17,9 @@ const eqArrays = (inArr1, inArr2) => {
 // the console if the arrays are equal or an error message otherwise.
 const assertArraysEqual = (arr1, arr2) => {
   if (eqArrays(arr1,arr2) === true) {
-    console.log(`🟢🟢🟢 Equal Arrays Assertion Passed`);
+    console.log(`🟢🟢🟢 Equal Arrays, Assertion Passed`);
   } else {
-    console.log(`🔴🔴🔴 Different Arrays Assertion Failed`);
+    console.log(`🔴🔴🔴 Different Arrays, Assertion Failed`);
   }
 };
 // function without takes an input array (inArr) and an array of values (removes)and
@@ -38,4 +38,16 @@ const without = (inArr, removes) => {
   return ansArr;
 };
 
+// Test Cases
 assertArraysEqual(without(["1", "2", "3"], [1, 2, "3"]), ['1','2']);
+
+assertArraysEqual(without(["1", "2", "3"], [1, 2, "3"]), true);
+
+assertArraysEqual(without(["1", "2", "3"], []), ["1", "2", "3"]);
+
+
+
+const words = ["hello", "world", "lighthouse"];
+without(words, ["lighthouse"]); // no need to capture return value for this test case
+// Make sure the original array was not altered by the without function
+assertArraysEqual(words, ["hello", "world", "lighthouse"]);
