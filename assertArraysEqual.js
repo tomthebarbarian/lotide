@@ -14,11 +14,11 @@ const eqArrays = (inArr1, inArr2) => {
 };
 
 // function assertArraysEqual takes in 2 arrays and logs a success message to
-// the console if the arrays are equal or an error message otherwise. 
+// the console if the arrays are equal or an error message otherwise.
 const assertArraysEqual = (arr1, arr2) => {
-  if (eqArrays(arr1,arr2)) {
-    console.log();
+  if (eqArrays(arr1,arr2) === true) {
+    console.log(`🟢🟢🟢 Equal Arrays Assertion Passed`);
   } else {
-    console.log();
+    console.log(`🔴🔴🔴 Different Arrays Assertion Failed`);
   }
 };
