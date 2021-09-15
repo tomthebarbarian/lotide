@@ -40,6 +40,6 @@ const letterPositions = (sentence) => {
 
 // Tests
 const testObj = letterPositions('hello');
-assertArraysEqual(testObj[h], [0]);
-assertArraysEqual(testObj[e], [1]);
-assertArraysEqual(testObj[l], [2,3]);
+assertArraysEqual(testObj['h'], [0]);
+assertArraysEqual(testObj['e'], [1]);
+assertArraysEqual(testObj['l'], [2,3]);
