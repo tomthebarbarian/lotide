@@ -21,4 +21,23 @@ const assertArraysEqual = (arr1, arr2) => {
   }
 };
 
-// function flatten
+// function flatten takes an array of arrays/including nested arrays of n levels and
+// and returns a flattened version of the array.
+
+const flatten = (inArr) => {
+  let ansArr = [];
+  for (let elem of inArr) {
+    if (Array.isArray(elem)) {
+      for (let x of elem) {
+        ansArr.push(x);
+      }
+    } else {
+      ansArr.push(elem);
+    }
+  }
+  return ansArr;
+};
+
+
+console.log(flatten([1, 2, [3, 4], 5, [6]]));
+// come back when you know recursion.
