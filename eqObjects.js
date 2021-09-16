@@ -69,6 +69,7 @@ assertEqual(eqObjects(ab, ba), true);
 
 assertEqual(eqObjects(ab, abc), false);
 
+// Eq2: have obj be equal when an array element is array.
 const cd = { c: "1", d: ["2", 3] };
 const dc = { d: ["2", 3], c: "1" };
 eqObjects(cd, dc); // => true
