@@ -34,4 +34,26 @@ let exam1 = findKey({
 // => "noma"
 
 
+let exam2 = findKey({
+  "Blue Hill": { stars: 1 },
+  "Akaleri":   { stars: 3 },
+  "noma":      { stars: 2 },
+  "elBulli":   { stars: 3 },
+  "Ora":       { stars: 2 },
+  "Akelarre":  { stars: 3 }
+}, x => x.stars === 7);
+
+let exam3 = findKey([
+  { stars: 1 },
+  { stars: 3 },
+  { stars: 2 },
+  {stars: 3 },
+  { stars: 2 },
+  { stars: 3 }
+], x => x.stars === 7);
+
+
+
 assertEqual(exam1, 'noma');
+assertEqual(exam2, undefined);
+assertEqual(exam3, undefined);
