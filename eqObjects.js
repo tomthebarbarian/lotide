@@ -45,27 +45,21 @@ const eqObjects = function(object1, object2) {
         if (Array.isArray(object1[key])) {
           // console.log('in obj array');
 
-          if ((eqArrays(object1[key], object2[key]))) {
-            continue;
-          } else {
+          if (!(eqArrays(object1[key], object2[key]))) {
             return false;
           }
           //  if not array, then obj?
         } else if (typeof object1[key] === 'object' && object1[key] !== null) {
           // console.log('in obj obj');
 
-          if  (eqObjects(object1[key], object2[key])) {
-            continue;
-          } else {
+          if  (!eqObjects(object1[key], object2[key])) {
             return false;
           }
           // if not obj or array
         } else if (object1 !== object2) {
           // console.log('in obj not obj');
 
-          if (eqObjects(object1[key], object2[key])) {
-            continue;
-          } else {
+          if (!eqObjects(object1[key], object2[key])) {
             return false;
           }
         }
