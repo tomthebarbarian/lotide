@@ -25,30 +25,56 @@ const eqArrays = (inArr1, inArr2) => {
 // Returns true if both objects have identical keys with identical values.
 // Otherwise you get back a big fat false!
 const eqObjects = function(object1, object2) {
-  let keys1 = Object.keys(object1);
-  let keys2 = Object.keys(object2);
-  let equalQ = true;
-  // console.log('keys1: ' + keys1);
-  // console.log('keys2: ' + keys2);
+  // Diff num key
+  // console.log('object1: ',object1, 'vs object2: ', object2);
+  // not obj
+  if (typeof object1 !== 'object') {
+    // console.log('not obj');
+    return (object1 === object2);
+    // is Arr
+  } else {
+    let obj1keys = Object.keys(object1);
+    // only key values matter
+    // console.log('keys length', obj1keys.length, Object.keys(object2).length);
+    if (obj1keys.length !== Object.keys(object2).length) {
+      return false;
+    } else {
+      for (let key in object1) {
+        // console.log('obj1 key: ' + object1[key]);
+        // if array
+        if (Array.isArray(object1[key])) {
+          // console.log('in obj array');
 
-  if (keys1.length === keys2.length) {
-    for (let i = 0; i < keys1.length; i++) {
-      // console.log('obj1 key: ' + object1[keys1[i]]);
-      if (object1[keys1[i]] instanceof Array) {
-        if (!(eqArrays(object1[keys1[i]], object2[keys1[i]]))) {
-          equalQ = false;
-          break;
+          if ((eqArrays(object1[key], object2[key]))) {
+            continue;
+          } else {
+            return false;
+          }
+          //  if not array, then obj?
+        } else if (typeof object1[key] === 'object' && object1[key] !== null) {
+          // console.log('in obj obj');
+
+          if  (eqObjects(object1[key], object2[key])) {
+            continue;
+          } else {
+            return false;
+          }
+          // if not obj or array
+        } else if (object1 !== object2) {
+          // console.log('in obj not obj');
+
+          if (eqObjects(object1[key], object2[key])) {
+            continue;
+          } else {
+            return false;
+          }
         }
-      } else if (object1[keys1[i]] !== object2[keys1[i]]) {
-        equalQ = false;
-        break;
       }
     }
-    return equalQ;
-  } else {
-    equalQ = false;
-    return equalQ;
   }
+    
+
+  return true;
 };
 
 
@@ -70,19 +96,28 @@ const eqObjects = function(object1, object2) {
 // assertEqual(eqObjects(ab, abc), false);
 
 // // Eq2: have obj be equal when an array element is array.
-// const cd = { c: "1", d: ["2", 3] };
-// const dc = { d: ["2", 3], c: "1" };
-// eqObjects(cd, dc); // => true
+const cd = { c: "1", d: ["2", 3] };
+const dc = { d: ["2", 3], c: "1" };
+eqObjects(cd, dc); // => true
 
-// const cd2 = { c: "1", d: ["2", 3, 4] };
-// eqObjects(cd, cd2); // => false
+const cd2 = { c: "1", d: ["2", 3, 4] };
+eqObjects(cd, cd2); // => false
 
-eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }) // => true
+assertEqual(eqObjects(
+  { a: { z: 1 }, b: 2 },
+  { a: { z: 1 }, b: 2 }),true);// => true
 
-eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }) // => false
-eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }) // => false
+assertEqual(eqObjects(
+  { a: { y: 0, z: 1 }, b: 2 },
+  { a: { z: 1 }, b: 2 }),false);// => false
+assertEqual(eqObjects(
+  { a: { y: 0, z: 1 }, b: 2 },
+  { a: 1, b: 2 }),false);// => false
 
-assertEqual(eqObjects(cd, dc), true);
+assertEqual(eqObjects(
+  { a: { z: 1, b: 3 , c: 5}, b: 2 },
+  { a: { z: 1, b: 3 , c: 4}, b: 3 }),false);// => true
 
-
-assertEqual(eqObjects(cd, cd2), false);
+assertEqual(eqObjects(
+  { a: { z: 1, b: 3 , c: {20: 4, 3: 22}}, b: 3,  h:[1,2,3] },
+  { a: { z: 1, b: 3 , c: {20 : 4}}, h: [1,2,3], b: 3 }),false);// => true

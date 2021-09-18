@@ -13,10 +13,10 @@ const assertEqual = function(actual, expected) {
 
 const findKey = (inObj, callback) => {
   let ans = undefined;
+
   for (let Key in inObj) {
     if (callback(inObj[Key])) {
-      ans = Key;
-      break;
+      return Key;
     }
   }
   return ans;
@@ -52,8 +52,17 @@ let exam3 = findKey([
   { stars: 3 }
 ], x => x.stars === 7);
 
+// let exam4 = findKey([
+//   { stars: 1 },
+//   { stars: 3 },
+//   { stars: 2 },
+//   {stars: 3 },
+//   { stars: 2 },
+//   { stars: 3 }
+// ]);
 
 
 assertEqual(exam1, 'noma');
 assertEqual(exam2, undefined);
 assertEqual(exam3, undefined);
+// console.log(exam4);
