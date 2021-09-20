@@ -1,7 +1,7 @@
 {
-  "name": "lotide",
+  "name": "@tomthebarbarian/lotide",
   "version": "1.0.0",
-  "description": "My version of lodash for lighthouse labs",
+  "description": "My version of lodash for lighthouse labs, a learning module",
   "main": "assertArraysEqual.js",
   "directories": {
     "test": "test"
@@ -14,7 +14,7 @@
     "url": "git+https://github.com/tomthebarbarian/lotide.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Tom Zhang",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tomthebarbarian/lotide/issues"
