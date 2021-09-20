@@ -1,3 +1,5 @@
+const { countOnly } = require(".");
+
 const eqArrays = (inArr1, inArr2) => {
 
   // console.log('Array1: ', inArr1, " Array 2: ", inArr2);
@@ -19,4 +21,5 @@ const eqArrays = (inArr1, inArr2) => {
   }
 };
  
+console.log(eqArrays([[4]],[[4]]));
 module.exports = (eqArrays);
