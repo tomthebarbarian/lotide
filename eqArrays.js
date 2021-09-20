@@ -1,6 +1,3 @@
-const assertEqual = require('./assertEqual');
-
-
 const eqArrays = (inArr1, inArr2) => {
 
   // console.log('Array1: ', inArr1, " Array 2: ", inArr2);
