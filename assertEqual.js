@@ -22,3 +22,5 @@ assertEqual('test', 'test');
 assertEqual('1', 1);
 assertEqual(true, 1);
 */
+
+module.exports = assertEqual;
