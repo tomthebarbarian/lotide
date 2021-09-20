@@ -15,7 +15,7 @@ const countOnly = (allItems, itemsToCount) => {
   const results = {};
 
   for (const item of allItems) {
-    console.log(item);
+    // console.log(item);
     if (itemsToCount[item]) {
       if (results[item]) {
         results[item] = results[item] + 1;
@@ -50,3 +50,4 @@ const countOnly = (allItems, itemsToCount) => {
 // assertEqual(result1["Agouhanna"], undefined);
 
 //  done 1458
+module.exports = countOnly;
