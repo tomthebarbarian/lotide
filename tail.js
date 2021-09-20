@@ -1,5 +1,3 @@
-const assertEqual = require('./assertEqual');
-
 // function tail takes an array of
 // values and returns an array of all but the
 // first value in the array, or undefined if there
