@@ -1,6 +1,3 @@
-const exp = require('constants');
-const assertEqual = require('./assertEqual');
-
 
 // function head.js returns the first
 // element in an array or undefined
