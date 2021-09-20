@@ -1,6 +1,6 @@
 {
   "name": "@tomthebarbarian/lotide",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "My version of lodash for lighthouse labs, a learning module",
   "main": "assertArraysEqual.js",
   "directories": {
