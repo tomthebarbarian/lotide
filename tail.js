@@ -1,11 +1,4 @@
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`🟢🟢🟢 Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`🔴🔴🔴 Assertion Failed: ${actual} !== ${expected}`);
-  }
-
-};
+const assertEqual = require('./assertEqual');
 
 // function tail takes an array of
 // values and returns an array of all but the
@@ -22,11 +15,6 @@ const tail = (anArray) => {
 };
 
 /*
-const testArr = [1,2,3,4];
-assertEqual(tail(testArr), testArr);
 
-assertEqual(tail([1]), undefined);
-
-
-assertEqual(tail([1,2,3,4])[0], tail([2,2,3,4])[0]);
 */
+module.exports = (tail);
