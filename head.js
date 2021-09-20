@@ -1,11 +1,5 @@
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`🟢🟢🟢 Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`🔴🔴🔴 Assertion Failed: ${actual} !== ${expected}`);
-  }
+const assertEqual = require('./assertEqual');
 
-};
 
 // function head.js returns the first
 // element in an array or undefined
@@ -16,11 +10,10 @@ const head = (anArr) => {
 };
 
 
-/*
+
 assertEqual(head([1,3]), head([1]));
 
 assertEqual(head([5,6,7]), 5);
 assertEqual(head(["Hello", "Lighthouse", "Labs"]), "Hello");
 
 assertEqual(head([]), undefined);
-*/
